@@ -10,25 +10,25 @@ public:
         int low=0;
         int high=n-1;
      
-        set<vector<int>>st;
-        for(int i=0;i<n-2;i++)
+        for(int i=0;i<n;i++)
         {
+            if(i> 0 && a[i]==a[i-1])
+                continue;
             low=i+1;
             high=n-1;
             
             while(low<high){
                 if(a[i]+a[low]+a[high]==0){
-                    if(st.find({a[i], a[low], a[high]}) == st.end())
                     ans.push_back({a[i], a[low], a[high]});
                     
-                    st.insert({a[i], a[low], a[high]});
-                    
+                    while(high>=1 && a[high]==a[high-1])
                     high--;
+                    while(low<n-1 && a[low]==a[low+1])
                     low++;
-                    if(a[low]==0 &&a[high] ==0)
-                    {
-                        break;
-                    }
+                    
+                    low++;
+                    high--;
+                   
                 }
                 else if(a[i]+a[low]+a[high] > 0)
                     high--;
