@@ -1,6 +1,6 @@
 class Solution {
 public:
-    map<string,vector<string>>mp;
+    unordered_map<string,vector<string>>mp;
     void preGroup(string str)
     {
         string lstr=str;
@@ -13,20 +13,18 @@ public:
         
         
         int n=s.size();
-        int hash[26]={0};
+        
         
         for(int i=0;i<n;i++){
             preGroup(s[i]);
         }
         vector<vector<string>>ans;
-        
-        vector<string>temp;
+     
         for(auto it:mp){
-            for(int i=0;i<it.second.size();i++){
-                temp.push_back(it.second[i]);
-            }
-            ans.push_back(temp);
-            temp.clear();
+           
+                ans.push_back(it.second);
+            
+            
         }
         return ans;
     }
