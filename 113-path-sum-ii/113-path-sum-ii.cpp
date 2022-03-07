@@ -16,7 +16,9 @@ public:
             return;
         
         path.push_back(root->val);
+        cout<<root->val<<" ";
         if(root->left==NULL && root->right==NULL && root->val==targetSum){
+             cout<<endl;
             ans.push_back(path);
         }
         
