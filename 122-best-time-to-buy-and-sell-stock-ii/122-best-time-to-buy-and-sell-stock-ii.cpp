@@ -2,8 +2,7 @@ class Solution {
 public:
     int maxProfit(vector<int>& a) {
         
-        int localmini=a[0];
-        int localmaxi=a[0];
+       
         int n=a.size();
         int sum=0;
         
