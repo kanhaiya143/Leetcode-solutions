@@ -22,7 +22,7 @@ public:
             int y=j+yinc[k];
             
             if(x!=last_x || y!=last_y)
-            dfs(x,y,vis,grid,n,m,grid[i][j], i, j);
+            dfs(x,y,vis,grid,n,m,parent, i, j);
         }
         
         return;
