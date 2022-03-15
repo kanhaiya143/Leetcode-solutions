@@ -4,30 +4,30 @@ public:
         
         int n=nums.size();
         
-        int i=0,j=0;
+        int end=0,start=0;
         int sum=0;
         int mini=INT_MAX;
         
-        while(i<n && j<n){
+        while(end<n && start<n){
             
             if(sum>=target){
                 //cout<<i<<" "<<j<<endl;
-                mini=min(mini,i-j);
-                sum-=nums[j];
-                j++;
+                mini=min(mini,end-start);
+                sum-=nums[start];
+                start++;
             }
             else
             {
-                sum+=nums[i];
+                sum+=nums[end];
                 //cout<<i<<" "<<sum<<" "<<endl;
-                i++;
+                end++;
             }
             
         }
         while(sum>=target){
-            mini=min(mini,i-j);
-            sum-=nums[j];
-            j++;
+            mini=min(mini,end-start);
+            sum-=nums[start];
+            start++;
             
         }
         if(mini==INT_MAX)
