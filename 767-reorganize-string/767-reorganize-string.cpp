@@ -14,12 +14,10 @@ public:
         priority_queue<pair<int,char>>pq;
         
         for(int i=0;i<26;i++){
-            if(n%2==0 && h[i]>n/2){
+            if(h[i] > (n/2 + n%2)){
                 return "";
             }
-            if(n%2==1 && h[i]>n/2+1){
-                return "";
-            }
+          
             if(h[i]>0){
                 pq.push({h[i],i+'a'});
             }
