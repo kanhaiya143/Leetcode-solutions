@@ -62,10 +62,10 @@ public:
                     pq.push({count2,c2});
                     }
                 }
-                else{
+//                 else{
                     
-                    return ans;
-                }
+//                     return ans;
+//                 }
               
                 if(count>0){
                     pq.push({count,c});
