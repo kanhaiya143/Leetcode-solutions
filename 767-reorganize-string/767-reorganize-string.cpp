@@ -25,55 +25,36 @@ public:
             }
         }
         
-        char c;
-        int count;
+        char c1;
+        int count1;
         char c2;
         int count2;
         while(!pq.empty()){
-            c=pq.top().second;
-            count=pq.top().first;
+            
+            c1 = pq.top().second;
+            count1 = pq.top().first;
+            ans+=c1;
+            count1--;
             pq.pop();
             
-            if(ans.size()==0){
-                 ans+=c;
-                count--;
+            if(!pq.empty()){
+                c2 = pq.top().second;
+                count2 = pq.top().first;
+                pq.pop();
                 
-                if(count>0){
-                    pq.push({count,c});
-                }
-            }
-            else if(ans.size()>0 && c!=ans[ans.size()-1]){
-                ans+=c;
-                count--;
+                ans+=c2;
+                count2--;
                 
-                if(count>0){
-                    pq.push({count,c});
-                }
-            }
-            else{
-                if(!pq.empty()){
-                    c2=pq.top().second;
-                    count2=pq.top().first;
-                
-                    pq.pop();
-                    ans+=c2;
-                    count2--;
-                    if(count2>0){
+                if(count2 > 0){
                     pq.push({count2,c2});
-                    }
-                }
-//                 else{
-                    
-//                     return ans;
-//                 }
-              
-                if(count>0){
-                    pq.push({count,c});
                 }
             }
             
+            if(count1 > 0){
+                pq.push({count1,c1});
+            }
            
-            
+
         }
         return ans;
     }
