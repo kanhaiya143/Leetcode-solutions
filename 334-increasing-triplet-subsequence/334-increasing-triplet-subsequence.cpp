@@ -20,6 +20,7 @@ public:
             leftMini=min(leftMini,nums[i]);
             
         }
+    
         return false;
     }
 };
