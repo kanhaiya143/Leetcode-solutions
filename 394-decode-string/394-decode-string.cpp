@@ -18,7 +18,7 @@ public:
                     temp+=st.top();
                     st.pop();
                 }
-                cout<<temp<<endl;
+                //cout<<temp<<endl;
                 reverse(temp.begin(),temp.end());
                 string num="";
                 st.pop();
@@ -26,7 +26,7 @@ public:
                     num+=st.top();
                     st.pop();
                 }
-                cout<<num<<endl;
+                //cout<<num<<endl;
                 reverse(num.begin(),num.end());
                 int x=stoi(num);
                 
