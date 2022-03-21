@@ -3,19 +3,18 @@ public:
     int firstMissingPositive(vector<int>& nums) {
         
         int n=nums.size();
-        unordered_map<int,int>mp;
-        
+      
         for(int i=0;i<n;i++){
-            mp[nums[i]]++;
+            
+               while(nums[i]>=1 && nums[i]<=n && nums[i]!=nums[nums[i]-1]){
+                   swap(nums[i],nums[nums[i]-1]);
+               }
+            
         }
-        
-        int i=1;
-        while(1){
-            if(mp.find(i)==mp.end()){
-                return i;
-            }
-            i++;
+        for(int i=0;i<n;i++){
+            if(nums[i]!=i+1)
+                return i+1;
         }
-        return 0;
+        return n+1;
     }
 };
