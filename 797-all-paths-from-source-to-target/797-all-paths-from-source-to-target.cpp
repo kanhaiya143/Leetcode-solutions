@@ -8,13 +8,14 @@ public:
         if(var==x)
         {
             ans.push_back(inter);
-            inter.pop_back();
+            //inter.pop_back();
             return;
         }
         for(int i=0;i<mp[var].size();i++){
             dfs(mp, ans, inter, mp[var][i], x);
+            inter.pop_back();
         }
-        inter.pop_back();
+        //inter.pop_back();
     }
     vector<vector<int>> allPathsSourceTarget(vector<vector<int>>& graph) {
         
