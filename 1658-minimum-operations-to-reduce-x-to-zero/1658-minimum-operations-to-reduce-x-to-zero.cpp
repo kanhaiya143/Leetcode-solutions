@@ -36,7 +36,6 @@ public:
             return n;
         unordered_map<int,int>mp;
         
-        //cout<<target<<endl;
         int maxi=INT_MIN;
         sum=0;
         for(int i=0;i<n;i++){
@@ -46,18 +45,15 @@ public:
                 maxi=max(maxi,i+1);
             }
             
-            //cout<<sum<<endl;
+            
             if(mp.find(sum-target)!=mp.end()){
-                //cout<<sum<<" "<<i<<" "<<mp[sum-target]<<endl;
                 maxi=max(maxi, i-mp[sum-target]);
             }
-            //else{
-                mp[sum]=i;
-            //}
-            
-            
+           
+            mp[sum]=i;
+
         }
-        //cout<<maxi<<endl;
+      
         if(maxi==INT_MIN)
             return -1;
         return n-maxi;
