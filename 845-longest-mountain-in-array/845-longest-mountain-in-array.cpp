@@ -21,20 +21,14 @@ public:
             
         }
         int maxi=0;
+        
         for(int i=1;i<n-1;i++){
             if(dpr[i]>1 && dpl[i]>1)
            maxi=max(maxi, dpl[i]+dpr[i]-1);
         }
-         for(int i=0;i<n;i++){
-            cout<<dpl[i]<<" ";
-        }
-        cout<<endl;
-        for(int i=0;i<n;i++){
-            cout<<dpr[i]<<" ";
-        }
-        cout<<endl;
-        if(maxi<=2)
-            return 0;
+       
+        // if(maxi<=2)
+        //     return 0;
         return maxi;
     }
 };
