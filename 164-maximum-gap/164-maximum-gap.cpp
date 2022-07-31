@@ -1,30 +1,42 @@
 class Solution {
 public:
     int maximumGap(vector<int>& nums) {
-    const int size_num = nums.size();
-    if (size_num < 2) return 0;
-    int maxV = *max_element(nums.begin(), nums.end());
-    int minV = *min_element(nums.begin(), nums.end());
+        if(nums.size()<2) return 0;
+        int n=nums.size();
         
-    if (maxV == minV) return 0;
+        int maxi=*max_element(nums.begin(), nums.end());
+        int mini=*min_element(nums.begin(), nums.end());
         
-    double range = (maxV - minV) / double(size_num - 1);
+        int bucketsize=(int)ceil((double)(maxi-mini)/(n-1));
+        if(bucketsize==0)
+            return 0;
         
-    vector<int> max_b(size_num, INT_MIN), min_b(size_num, INT_MAX);
         
-    for (int i = 0; i < size_num; i++) {
-        int index = (nums[i] - minV) / range;
-        max_b[index] = max(max_b[index], nums[i]);
-        min_b[index] = min(min_b[index], nums[i]);
-    }
+        vector<int>mn(n-1, INT_MAX);
+        vector<int>mx(n-1, INT_MIN);
         
-    int max_g = (int)range,  start = max_b[0];
-        
-    for (int i = 1; i < size_num; i++) {
-        if (min_b[i] == INT_MAX) continue;
-        max_g = max(max_g, min_b[i] - start);
-        start = max_b[i];
-    }
-    return max_g;
+        for(int i=0;i<n;i++){
+            if(nums[i]==maxi || nums[i]==mini)
+                continue;
+            
+            int backetindex=(nums[i]-mini)/bucketsize;
+            
+            mn[backetindex]=min(mn[backetindex], nums[i]);
+            mx[backetindex]=max(mx[backetindex], nums[i]);
+            
+        }
+
+        int maxgap=0;
+        for(int i=0;i<n-1;i++){
+            if(mx[i]==INT_MIN)
+                continue;
+            
+            maxgap=max(maxgap, mn[i]-mini);
+            mini=mx[i];
+            
+        }
+        maxgap=max(maxgap, maxi-mini);
+
+        return maxgap;
     }
 };
