@@ -10,18 +10,18 @@ public:
             table[trips[i][1]]+=trips[i][0];
             table[trips[i][2]]-=trips[i][0];
         }
-        bool ans=true;
+        
         if(table[0]>capacity){
             return false;
         }
+        
         for(int i=1;i<=1001;i++){
             table[i]+=table[i-1];
-            //cout<<table[i]<<" ";
             if(table[i]>capacity){
                 return false;
             }
         }
         
-        return ans;
+        return true;
     }
 };
