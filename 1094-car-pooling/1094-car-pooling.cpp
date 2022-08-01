@@ -4,7 +4,7 @@ public:
         
         int n=trips.size();
         
-        vector<int>table(1002,0);
+        vector<int>table(1001,0);
         
         for(int i=0;i<n;i++){
             table[trips[i][1]]+=trips[i][0];
@@ -15,7 +15,7 @@ public:
             return false;
         }
         
-        for(int i=1;i<=1001;i++){
+        for(int i=1;i<=1000;i++){
             table[i]+=table[i-1];
             if(table[i]>capacity){
                 return false;
