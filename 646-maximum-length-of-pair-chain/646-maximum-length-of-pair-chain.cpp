@@ -1,8 +1,5 @@
 class Solution {
 public:
-    bool comp(pair<int,int>&a, pair<int,int>&b){
-        return a.second<b.second;
-    }
     int findLongestChain(vector<vector<int>>& pairs) {
         int n=pairs.size();
         
