@@ -6,7 +6,6 @@ public:
         queue<pair<int,int>>q;
         q.push({start, arr[start]});
         
-        unordered_set<int>st;
         
         while(!q.empty()){
             pair<int,int>temp=q.front();
@@ -15,12 +14,13 @@ public:
             int idx=temp.first;
             int val=temp.second;
             
+            arr[idx]*=-1;
             if(val==0)
                 return true;
-            if(st.find(idx)!=st.end()){
+            if(val<0){
                 continue;
             }
-            st.insert(idx);
+           
             if(idx+val<n)
                 q.push({idx+val, arr[idx+val]});
             
