@@ -6,7 +6,7 @@ public:
         queue<pair<int,int>>q;
         q.push({start, arr[start]});
         
-        set<int>st;
+        unordered_set<int>st;
         
         while(!q.empty()){
             pair<int,int>temp=q.front();
